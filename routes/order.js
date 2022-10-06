@@ -6,15 +6,17 @@ const router = express.Router();
 
 router.get("/order", async (req, res) => {
   const page = req.query.page || 1;
-  let limit = req.query.limit || 3;
+  let limit = req.query.limit || 4;
   const skip = (page - 1) * limit;
-    try {
+
+  
+  try {
       const orders = await Order.find()
       .limit(limit)
       .skip(skip);;
       const total = await Order.count();;
       res.status(200).send({orders,total});
-      console.log(orders)
+      
     } catch (error) {
       console.log(error.message);
       res.status(500).send(error);

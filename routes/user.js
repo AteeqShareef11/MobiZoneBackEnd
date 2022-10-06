@@ -16,10 +16,7 @@ router.get("/user", async (req, res) => {
       .skip(skip);;
       const total = await User.count();
       res.status(200).send({users,total})
-  
-
-    
-      console.log(users)
+     
     } catch (error) {
       console.log(error.message);
       res.status(500).send(error);

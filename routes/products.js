@@ -50,7 +50,7 @@ router.get("/", async (req, res) => {
 
 router.get("/adminProducts", async (req, res) => {
   const page = req.query.page || 1;
-  let limit = req.query.limit || 3;
+  let limit = req.query.limit || 6;
   const skip = (page - 1) * limit;
   try {
     const products = await Product.find().limit(limit).skip(skip);
@@ -64,11 +64,11 @@ router.get("/adminProducts", async (req, res) => {
 
 router.get("/getproducts/bybrand", async (req, res) => {
   const page = req.query.page || 1;
-  let limit = req.query.limit || 3;
+  let limit = req.query.limit || 6;
   const skip = (page - 1) * limit;
 
   const { brand } = req.query;
-
+  console.log(limit)
   console.log(page);
 
   try {
